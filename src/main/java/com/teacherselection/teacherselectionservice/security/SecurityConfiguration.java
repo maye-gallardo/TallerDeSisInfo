@@ -23,7 +23,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
       http
         .csrf().disable()
         .authorizeRequests()
-        .antMatchers("/api/admin/**").hasAuthority("ADMIN")
+        .antMatchers("/api/admin/**").permitAll()
         .antMatchers("/api/**").permitAll()
         .and().httpBasic()
         .and().logout().logoutUrl("/api/logout").logoutRequestMatcher(new AntPathRequestMatcher("/api/logout"))
